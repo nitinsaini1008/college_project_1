@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<style>
+		.warn{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Enter your details here</h1>
+	<form action="login" method="post">
+		{% csrf_token %}
+		Enter first_name*:<input type="text" name="first_name" required><br>
+		Enter last_name:<input type="text" name="last_name"><br>
+		Enter username*:<input type="text" name="username" required><br>
+		Enter email*:<input type="email" name="email" required><br>
+		Enter password*:<input type="password" name="password1" required><br>
+		Enter confirm password*:<input type="password" name="password2" required><br>
+		<input type="Submit">
+	</form>
+	<a href="/">back</a>
+	<div class="warn">
+		{% for i in messages %}
+		<h3>{{i}}</h3>
+		{% endfor %}
+	</div>
+</body>
+</html>

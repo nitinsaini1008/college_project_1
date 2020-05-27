@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+
+</head>
+<body>
+	<h1>Welcome</h1><br>
+	{% if user.is_authenticated %}
+	<h1>Hello,{{user.username}}</h1>
+	<a href="logout">logout</a>
+	{% else %}
+	<a href="login">Register</a>
+	<a href="register">login</a>
+	<h3>------or--------x</h3>
+	
+	<a href="{% url 'social:begin' 'linkedin-oauth2' %}">
+		<button type="button" name="button">login with linkedin</button>
+	</a><br>
+	{% endif %}
+	
+</body>
+</html>
